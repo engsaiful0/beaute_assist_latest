@@ -1,0 +1,51 @@
+/* CSS Document */
+
+/* Global Properties */
+
+html,body {height: 100%;}
+
+body{width:100%; height: auto; font-family: Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif"; color: #E5998C; display: flex;align-items: center;}
+a{color: #E5998C; text-decoration: none;}
+a:hover{color: #E5998C;text-decoration: none;}
+h1,h2,h3,h4,h5,h6{color: #E5998C;}
+p{color: #747579;}
+img{max-width: 100%; height: auto;}
+input[type=text]{border:1px solid #E5998C; background-color: #FFFFFF; color: #E5998C; font-size: 1em;}
+input[type=text]::placeholder{color: #E5998C; padding: 5px; opacity: 0.5;}
+input[type=text]:focus{border:1px solid #E5998C; background-color: #FFFFFF; color: #E5998C;}
+
+input[type=email]{border:1px solid #E5998C; background-color: #FFFFFF; color: #E5998C; font-size: 1em; padding: 15px;}
+input[type=email]::placeholder{color: #747579; opacity: 0.5;}
+input[type=email]:focus{border:1px solid #E5998C; background-color: #FFFFFF; color: #E5998C;}
+
+input[type=password]{border:1px solid #E5998C; background-color: #FFFFFF; color: #E5998C; font-size: 1em; padding: 15px;}
+input[type=password]::placeholder{color: #747579; opacity: 0.5;}
+input[type=password]:focus{border:1px solid #E5998C; background-color: #FFFFFF; color: #E5998C;}
+
+.btn_submit{border:thin solid #E5998C; background-color: #E5998C; color: #FAF1E9; font-size: 1em; padding: 15px;}
+.btn_submit:hover{border:thin solid #E5998C; background-color: #FAF1E9; color: #E5998C;}
+
+.btn_create{border:thin solid #E5998C; background-color: #E5998C; color: #FAF1E9; font-size: 1em; padding: 25px;}
+.btn_create:hover{border:thin solid #E5998C; background-color: #FAF1E9; color: #E5998C;}
+
+.btn_discover{border:thin solid #E5998C; background-color: #E5998C; color: #FAF1E9; font-size: 1em; padding: 5px;}
+.btn_discover:hover{border:thin solid #E5998C; background-color: #FAF1E9; color: #E5998C;}
+
+.btn_video{border:thin solid #E5998C; background-color: #FAF1E9; color: #E5998C; font-size: 1em; padding: 5px;}
+.btn_video:hover{border:thin solid #E5998C; background-color: #E5998C; color: #FAF1E9;}
+
+.copyright_text{font-size:0.8em; color: #bbbbbb; letter-spacing: 0.5px; }
+
+.head_color{color: #E5998C;}
+.nopadding {padding: 0 !important;margin: 0 !important;}
+
+
+
+/* Coming Soon Page CSS Properties */
+.bg_beige{background-color: #FAF1E9;}
+.img_logo{max-width: 15em; height: auto; margin: auto;}
+.img_banner{height: 100%;width: 100%;object-fit: cover;}
+.container_img_banner { position: relative; }
+.container_img_banner img { display: block; }
+.container_img_banner .ba-logo { position: absolute; top:50; right:50; }
+.form_ctr{max-width: 75%;}

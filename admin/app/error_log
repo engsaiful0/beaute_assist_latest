@@ -1,0 +1,4 @@
+[08-Feb-2023 09:04:03 America/Costa_Rica] PHP Notice:  Trying to access array offset on value of type null in /home5/sellyplay/public_html/admin/app/chat_setting.php on line 189
+[08-Feb-2023 09:04:03 America/Costa_Rica] PHP Notice:  Trying to access array offset on value of type null in /home5/sellyplay/public_html/admin/app/chat_setting.php on line 203
+[08-Feb-2023 09:04:23 America/Costa_Rica] PHP Notice:  Trying to access array offset on value of type null in /home5/sellyplay/public_html/admin/app/chat_setting.php on line 109
+[08-Feb-2023 09:04:23 America/Costa_Rica] PHP Notice:  Trying to access array offset on value of type null in /home5/sellyplay/public_html/admin/app/chat_setting.php on line 123
