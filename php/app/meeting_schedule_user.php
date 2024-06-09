@@ -8,7 +8,7 @@ if(checkloggedin())
     $ses_userdata = get_user_data($_SESSION['user']['username']);
 
     $result = ORM::for_table($config['db']['pre'].'meeting_schedule')
-        ->where('user_id' , $_SESSION['user']['id'])->find_many();
+        ->where('user_id' , $_SESSION['user']['id'])->order_by_desc('id')->find_many();
    // die($_SESSION['user']['id']);
 
 

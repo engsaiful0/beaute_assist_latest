@@ -22,9 +22,9 @@ if (checkloggedin()) {
         if ($errors == 0) {
             $now = date("Y-m-d H:i:s");
             $user_update = ORM::for_table($config['db']['pre'] . 'user')->find_one($_SESSION['user']['id']);
-            if($_POST["user-type"] == 1){
+            if ($_POST["user-type"] == 1) {
                 $user_update->user_type = 'user';
-            }else{
+            } else {
                 $user_update->user_type = 'employer';
             }
             $user_update->set('updated_at', $now);
@@ -48,53 +48,68 @@ if (checkloggedin()) {
     $posted_project = 0;
     $posted_jobs = 0;
     $completed_projects = 0;
-    if($_SESSION['user']['user_type'] == 'user'){
-        $win_project = ORM::for_table($config['db']['pre'].'project')
-            ->where('freelancer_id' , $_SESSION['user']['id'])
+    $total_schedules = 0;
+    $total_pending_schedules = 0;
+    $total_completed_schedules = 0;
+    if ($_SESSION['user']['user_type'] == 'user') {
+        $win_project = ORM::for_table($config['db']['pre'] . 'project')
+            ->where('freelancer_id', $_SESSION['user']['id'])
             ->count();
-        $completed_projects = ORM::for_table($config['db']['pre'].'project')
+        $completed_projects = ORM::for_table($config['db']['pre'] . 'project')
             ->where(array(
                 'freelancer_id' => $_SESSION['user']['id'],
-                'status'=> 'completed'
+                'status' => 'completed'
             ))
             ->count();
-        $review_count = ORM::for_table($config['db']['pre'].'reviews')
+        $review_count = ORM::for_table($config['db']['pre'] . 'reviews')
             ->where(array(
                 'freelancer_id' => $_SESSION['user']['id'],
-                'rated_by'=> 'employer'
+                'rated_by' => 'employer'
             ))
             ->count();
-    }else{
-        $posted_project = ORM::for_table($config['db']['pre'].'project')
-            ->where('user_id' , $_SESSION['user']['id'])
+
+        $total_schedules = ORM::for_table($config['db']['pre'] . 'meeting_schedule')
+            ->where('user_id', $_SESSION['user']['id'])
             ->count();
-        $posted_jobs = ORM::for_table($config['db']['pre'].'product')
-            ->where('user_id' , $_SESSION['user']['id'])
+        $total_pending_schedules = ORM::for_table($config['db']['pre'] . 'meeting_schedule')
+            ->where('status','Pending')
+            ->where('user_id', $_SESSION['user']['id'])
             ->count();
-        $review_count = ORM::for_table($config['db']['pre'].'reviews')
+            
+        $total_completed_schedules = ORM::for_table($config['db']['pre'] . 'meeting_schedule')
+            ->where('user_id', $_SESSION['user']['id'])
+            ->where('status','Completed')
+            ->count();
+    } else {
+        $posted_project = ORM::for_table($config['db']['pre'] . 'project')
+            ->where('user_id', $_SESSION['user']['id'])
+            ->count();
+        $posted_jobs = ORM::for_table($config['db']['pre'] . 'product')
+            ->where('user_id', $_SESSION['user']['id'])
+            ->count();
+        $review_count = ORM::for_table($config['db']['pre'] . 'reviews')
             ->where(array(
                 'employer_id' => $_SESSION['user']['id'],
-                'rated_by'=> 'user'
+                'rated_by' => 'user'
             ))
             ->count();
     }
 
     $page = 1;
     $limit = 10;
-    $total_item = ORM::for_table($config['db']['pre'].'push_notification')
-        ->where('owner_id',$_SESSION['user']['id'])
+    $total_item = ORM::for_table($config['db']['pre'] . 'push_notification')
+        ->where('owner_id', $_SESSION['user']['id'])
         ->orderByDesc('id')
         ->count();
 
     $notification = array();
-    $rows = ORM::for_table($config['db']['pre'].'push_notification')
-        ->where('owner_id',$_SESSION['user']['id'])
+    $rows = ORM::for_table($config['db']['pre'] . 'push_notification')
+        ->where('owner_id', $_SESSION['user']['id'])
         ->orderByDesc('id')
         ->limit($limit)
         ->find_many();
 
-    foreach ($rows as $info)
-    {
+    foreach ($rows as $info) {
         $note['sender_id'] = $info['sender_id'];
         $note['sender_name'] = $info['sender_name'];
         $note['owner_id'] = $info['owner_id'];
@@ -119,6 +134,11 @@ if (checkloggedin()) {
         'sub_title' => $sub_title,
         'sub_image' => $sub_image,
         'type_error' => $type_error,
+
+        'total_schedules' => $total_schedules,
+        'total_pending_schedules' => $total_pending_schedules,
+        'total_completed_schedules' => $total_completed_schedules,
+
         'notification' => $notification,
         'lastactive' => $author_lastactive,
         'win_project' => $win_project,
@@ -135,4 +155,3 @@ if (checkloggedin()) {
 } else {
     headerRedirect($link['LOGIN']);
 }
-?>

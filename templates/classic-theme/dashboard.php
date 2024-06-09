@@ -44,31 +44,32 @@ overall_header(__("Dashboard"));
                     <?php } elseif($usertype == "user"){ ?>
                     <div class="fun-fact" data-fun-fact-color="#36bd78">
                         <div class="fun-fact-text">
-                            <span><?php _e("Projects Posted") ?></span>
-                            <h4><?php _esc($posted_project)?></h4>
+                            <span><?php _e("Total Schedules") ?></span>
+                            <h4><?php _esc($total_schedules)?></h4>
                         </div>
                         <div class="fun-fact-icon"><i class="icon-material-outline-gavel"></i></div>
                     </div>
                     <div class="fun-fact" data-fun-fact-color="#b81b7f">
                         <div class="fun-fact-text">
-                            <span><?php _e("Jobs Posted") ?></span>
-                            <h4><?php _esc($posted_jobs)?></h4>
+                            <span><?php _e("Pending Schedules") ?></span>
+                            <h4><?php _esc($total_pending_schedules)?></h4>
+                        </div>
+                        <div class="fun-fact-icon"><i class="icon-material-outline-business-center"></i></div>
+                    </div>
+                    <div class="fun-fact" data-fun-fact-color="#b81b7f">
+                        <div class="fun-fact-text">
+                            <span><?php _e("Completed Schedules") ?></span>
+                            <h4><?php _esc($total_completed_schedules)?></h4>
                         </div>
                         <div class="fun-fact-icon"><i class="icon-material-outline-business-center"></i></div>
                     </div>
 
                 <?php } ?>
-                <div class="fun-fact" data-fun-fact-color="#efa80f">
-                    <div class="fun-fact-text">
-                        <span><?php _e("Reviews") ?></span>
-                        <h4><?php _esc($review_count)?></h4>
-                    </div>
-                    <div class="fun-fact-icon"><i class="icon-material-outline-rate-review"></i></div>
-                </div>
+                
             </div>
 
             <!-- Row -->
-            <div class="row">
+            <div style="display: none;" class="row">
                 <div class="col-xl-12 col-md-12 ">
                     <div class="dashboard-box margin-top-20">
                         <div class="content with-padding">
