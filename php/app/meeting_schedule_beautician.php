@@ -8,7 +8,7 @@ if(checkloggedin())
 
 
         $result = ORM::for_table($config['db']['pre'].'meeting_schedule')
-        ->where('beautician_id' , $_SESSION['user']['id'])->find_many();
+        ->where('beautician_id' , $_SESSION['user']['id'])->order_by_desc('id')->find_many();
 
     $items = array();
     if ($result) {

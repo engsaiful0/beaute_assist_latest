@@ -13,7 +13,7 @@ if (checkloggedin()) {
         ->order_by_desc('id')
         ->find_many();
     $resultMeetingSchedule = ORM::for_table($config['db']['pre'] . 'meeting_schedule')
-        ->where('beautician_id', $_SESSION['user']['id'])->where('status', 'Running')->where('start_date', date('Y-m-d'))->find_many();
+        ->where('beautician_id', $_SESSION['user']['id'])->where('start_date', date('Y-m-d'))->find_many();
     $scheduleTimeInHoure = array();
     $scheduleTimeInMinute = array();
     // print_r($_SESSION['user']['id']);
