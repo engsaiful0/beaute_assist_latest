@@ -364,7 +364,7 @@
                         </div>
                     </div>
                 <?php } ?>
-
+<divs style="display: none;">
                 <?php
                 if ($is_login) {
                     if ($config['quickchat_socket_on_off'] == 'on' || $config['quickchat_ajax_on_off'] == 'on') {
@@ -388,6 +388,7 @@
                     }
                 }
                 ?>
+                </divs>
                 <!-- Widget -->
                 <div class="sidebar-widget">
                     <h3><?php _e("Social Profiles") ?></h3>

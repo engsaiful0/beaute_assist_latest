@@ -72,13 +72,13 @@ if (checkloggedin()) {
             ->where('user_id', $_SESSION['user']['id'])
             ->count();
         $total_pending_schedules = ORM::for_table($config['db']['pre'] . 'meeting_schedule')
-            ->where('status','Pending')
+            ->where('status', 'Pending')
             ->where('user_id', $_SESSION['user']['id'])
             ->count();
-            
+
         $total_completed_schedules = ORM::for_table($config['db']['pre'] . 'meeting_schedule')
             ->where('user_id', $_SESSION['user']['id'])
-            ->where('status','Completed')
+            ->where('status', 'Completed')
             ->count();
     } else {
         $posted_project = ORM::for_table($config['db']['pre'] . 'project')
@@ -92,6 +92,19 @@ if (checkloggedin()) {
                 'employer_id' => $_SESSION['user']['id'],
                 'rated_by' => 'user'
             ))
+            ->count();
+
+        $total_schedules = ORM::for_table($config['db']['pre'] . 'meeting_schedule')
+            ->where('beautician_id', $_SESSION['user']['id'])
+            ->count();
+        $total_pending_schedules = ORM::for_table($config['db']['pre'] . 'meeting_schedule')
+            ->where('status', 'Pending')
+            ->where('beautician_id', $_SESSION['user']['id'])
+            ->count();
+
+        $total_completed_schedules = ORM::for_table($config['db']['pre'] . 'meeting_schedule')
+            ->where('beautician_id', $_SESSION['user']['id'])
+            ->where('status', 'Completed')
             ->count();
     }
 

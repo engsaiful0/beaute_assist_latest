@@ -25,21 +25,30 @@ overall_header(__("Dashboard"));
 
             <!-- Fun Facts Container -->
             <div class="fun-facts-container">
-                <?php if($usertype == "beautisian") { ?>
+                <?php
+                if($usertype == "beautician") { ?>
                     <div class="fun-fact" data-fun-fact-color="#36bd78">
                         <div class="fun-fact-text">
-                            <span><?php _e("Won Bid") ?></span>
-                            <h4><?php _esc($win_project)?></h4>
+                            <span><?php _e("Total Schedules") ?></span>
+                            <h4><?php _esc($total_schedules)?></h4>
                         </div>
-                        <div class="fun-fact-icon"><i class="icon-material-outline-gavel"></i></div>
+                        <div class="fun-fact-icon"><i class="icon-material-outline-assignment"></i></div>
                     </div>
                     <div class="fun-fact" data-fun-fact-color="#b81b7f">
                         <div class="fun-fact-text">
-                            <span><?php _e("Completed Projects") ?></span>
-                            <h4><?php _esc($completed_projects)?></h4>
+                            <span><?php _e("Pending Schedules") ?></span>
+                            <h4><?php _esc($total_pending_schedules)?></h4>
                         </div>
-                        <div class="fun-fact-icon"><i class="icon-material-outline-business-center"></i></div>
+                        <div class="fun-fact-icon"><i class="icon-material-outline-assignment"></i></div>
                     </div>
+                    <div class="fun-fact" data-fun-fact-color="#b81b7f">
+                        <div class="fun-fact-text">
+                            <span><?php _e("Completed Schedules") ?></span>
+                            <h4><?php _esc($total_completed_schedules)?></h4>
+                        </div>
+                        <div class="fun-fact-icon"><i class="icon-material-outline-assignment"></i></div>
+                    </div>
+
 
                     <?php } elseif($usertype == "user"){ ?>
                     <div class="fun-fact" data-fun-fact-color="#36bd78">
@@ -47,21 +56,21 @@ overall_header(__("Dashboard"));
                             <span><?php _e("Total Schedules") ?></span>
                             <h4><?php _esc($total_schedules)?></h4>
                         </div>
-                        <div class="fun-fact-icon"><i class="icon-material-outline-gavel"></i></div>
+                        <div class="fun-fact-icon"><i class="icon-material-outline-assignment"></i></div>
                     </div>
                     <div class="fun-fact" data-fun-fact-color="#b81b7f">
                         <div class="fun-fact-text">
                             <span><?php _e("Pending Schedules") ?></span>
                             <h4><?php _esc($total_pending_schedules)?></h4>
                         </div>
-                        <div class="fun-fact-icon"><i class="icon-material-outline-business-center"></i></div>
+                        <div class="fun-fact-icon"><i class="icon-material-outline-assignment"></i></div>
                     </div>
                     <div class="fun-fact" data-fun-fact-color="#b81b7f">
                         <div class="fun-fact-text">
                             <span><?php _e("Completed Schedules") ?></span>
                             <h4><?php _esc($total_completed_schedules)?></h4>
                         </div>
-                        <div class="fun-fact-icon"><i class="icon-material-outline-business-center"></i></div>
+                        <div class="fun-fact-icon"><i class="icon-material-outline-assignment"></i></div>
                     </div>
 
                 <?php } ?>

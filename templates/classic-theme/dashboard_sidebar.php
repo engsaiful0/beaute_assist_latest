@@ -30,11 +30,9 @@
                                 } else if ($usertype == "beautician") {
                                 ?>
                                     <?php if ($config['quickchat_socket_on_off'] == 'on' || $config['quickchat_ajax_on_off'] == 'on') { ?>
-                                        <li><a href="<?php url("MESSAGE") ?>"><i class="icon-material-outline-question-answer"></i> <?php _e("Message") ?></a></li>
+                                        <li style="display: none;"><a href="<?php url("MESSAGE") ?>"><i class="icon-material-outline-question-answer"></i> <?php _e("Message") ?></a></li>
                                     <?php } ?>
                                     <li><a href="<?php url("RATING") ?>"><i class="icon-material-outline-thumb-up"></i><?php _e("Rating") ?></a></li>
-
-
                                 <?php
                                 }
                                 ?>
